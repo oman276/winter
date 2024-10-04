@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://drstwhhdab6p7"]
+
+[ext_resource type="Script" path="res://Scenes/Test Environments/ink_player.gd" id="1_6hqv4"]
+[ext_resource type="Texture2D" uid="uid://dhvj5gnpm4i8e" path="res://Sprites/temp background.png" id="1_42jhv"]
+[ext_resource type="Texture2D" uid="uid://dkpxqi50pkfey" path="res://Sprites/temp_father.png" id="2_it265"]
+[ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="2_ubjex"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="2_wknms"]
+[ext_resource type="PackedScene" uid="uid://j6ofb7hlsp6b" path="res://Scenes/Systems/dialogue_box.tscn" id="6_smyt0"]
+
+[sub_resource type="Gradient" id="Gradient_lccr5"]
+colors = PackedColorArray(0.560784, 0.592157, 0.662745, 1, 0.560784, 0.592157, 0.662745, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73eeu"]
+gradient = SubResource("Gradient_lccr5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs0bk"]
+size = Vector2(243.598, 2.5641)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
+size = Vector2(133, 245)
+
+[sub_resource type="Theme" id="Theme_gtp7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk3l5"]
+bg_color = Color(0.77413, 0.811054, 0.796481, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iyhux"]
+bg_color = Color(0.642594, 0.729988, 0.761403, 1)
+
+[node name="Test Scene" type="Node2D"]
+script = ExtResource("1_6hqv4")
+
+[node name="DialogueBox" parent="." instance=ExtResource("6_smyt0")]
+layer = 4
+scale = Vector2(1.00319, 1)
+transform = Transform2D(1.00319, 0, 0, 1, 0, 0)
+
+[node name="TempBackground" type="Sprite2D" parent="."]
+position = Vector2(33, -159)
+scale = Vector2(1.21411, 1.21411)
+texture = ExtResource("1_42jhv")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_wknms")
+follow_offset = Vector2(0, -250)
+player = NodePath("../Player")
+
+[node name="Ground Temp" type="Sprite2D" parent="."]
+position = Vector2(-84.4999, 266)
+scale = Vector2(5.40234, 87.75)
+texture = SubResource("GradientTexture1D_73eeu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground Temp"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Temp/StaticBody2D"]
+position = Vector2(19.3434, 0.814815)
+shape = SubResource("RectangleShape2D_hs0bk")
+
+[node name="Ground Temp2" type="Sprite2D" parent="."]
+position = Vector2(683, 199)
+rotation = -0.208364
+scale = Vector2(5.40234, 87.75)
+texture = SubResource("GradientTexture1D_73eeu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground Temp2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Temp2/StaticBody2D"]
+position = Vector2(19.3434, 0.814815)
+shape = SubResource("RectangleShape2D_hs0bk")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-270, 131)
+script = ExtResource("2_ubjex")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-33.125, -100.825)
+scale = Vector2(1.02165, 1.02165)
+texture = ExtResource("2_it265")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-33.5, -101.5)
+shape = SubResource("RectangleShape2D_vdumk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 248.0
+offset_top = -136.0
+offset_right = 248.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.61277, 0.700243)
+theme = SubResource("Theme_gtp7s")
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yk3l5")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iyhux")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "Wow! This is text you can see in the game! Wooooooooo
+"
