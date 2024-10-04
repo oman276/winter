@@ -1,0 +1,14 @@
+[remap]
+
+importer="inkgd.ink"
+type="Resource"
+uid="uid://b43s523uicbxo"
+path="res://.godot/imported/test2.ink-1f5979ecc242150c82c4594ca5a0e28a.res"
+
+[deps]
+
+source_file="res://Ink Scripts/test2.ink"
+dest_files=["res://.godot/imported/test2.ink-1f5979ecc242150c82c4594ca5a0e28a.res"]
+
+[params]
+

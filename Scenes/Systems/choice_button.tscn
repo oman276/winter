@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbddfrmiqnjk1"]
+
+[node name="ChoiceButton" type="Button"]
+theme_override_font_sizes/font_size = 36
+text = "Choice"
+expand_icon = true
