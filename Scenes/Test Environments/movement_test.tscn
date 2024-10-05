@@ -65,7 +65,8 @@ texture = SubResource("GradientTexture1D_73eeu")
 position = Vector2(19.3434, 0.814815)
 shape = SubResource("RectangleShape2D_hs0bk")
 
-[node name="Player" parent="." instance=ExtResource("5_h3877")]
+[node name="Player" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_h3877")]
+game_manager = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -113,5 +114,7 @@ theme_override_font_sizes/font_size = 31
 text = "Wow! This is text you can see in the game! Wooooooooo
 "
 
-[node name="NpcTemplate" parent="." instance=ExtResource("6_3mucb")]
+[node name="TestNPC1" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("6_3mucb")]
 position = Vector2(617, 84)
+npcName = "Test"
+game_manager = NodePath("..")

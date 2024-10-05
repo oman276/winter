@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://pgqoi5elfjig"]
+[gd_scene load_steps=5 format=3 uid="uid://pgqoi5elfjig"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="1_uxh7w"]
 [ext_resource type="Texture2D" uid="uid://dkpxqi50pkfey" path="res://Sprites/temp_father.png" id="2_md1ns"]
+[ext_resource type="PackedScene" uid="uid://q531p4y0s8sh" path="res://Scenes/Systems/dialogue_balloon.tscn" id="3_jkqnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
 size = Vector2(133, 245)
@@ -18,3 +19,7 @@ texture = ExtResource("2_md1ns")
 [node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(-33.5, -101.5)
 shape = SubResource("RectangleShape2D_vdumk")
+
+[node name="DialogueBalloon" parent="." instance=ExtResource("3_jkqnx")]
+position = Vector2(-231, -403)
+scale = Vector2(0.651112, 0.651112)
