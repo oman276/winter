@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://pgqoi5elfjig"]
+
+[ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="1_uxh7w"]
+[ext_resource type="Texture2D" uid="uid://dkpxqi50pkfey" path="res://Sprites/temp_father.png" id="2_md1ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
+size = Vector2(133, 245)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(-270, 131)
+script = ExtResource("1_uxh7w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
+position = Vector2(-33.125, -100.825)
+scale = Vector2(1.02165, 1.02165)
+texture = ExtResource("2_md1ns")
+
+[node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(-33.5, -101.5)
+shape = SubResource("RectangleShape2D_vdumk")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://drstwhhdab6p7"]
+[gd_scene load_steps=13 format=3 uid="uid://drstwhhdab6p7"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/ink_player.gd" id="1_6hqv4"]
 [ext_resource type="Texture2D" uid="uid://dhvj5gnpm4i8e" path="res://Sprites/temp background.png" id="1_42jhv"]
-[ext_resource type="Texture2D" uid="uid://dkpxqi50pkfey" path="res://Sprites/temp_father.png" id="2_it265"]
-[ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="2_ubjex"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_wknms"]
+[ext_resource type="PackedScene" uid="uid://pgqoi5elfjig" path="res://Scenes/Entities/player.tscn" id="5_h3877"]
+[ext_resource type="PackedScene" uid="uid://bluuiqjvnij0m" path="res://Scenes/Entities/npc_template.tscn" id="6_3mucb"]
 [ext_resource type="PackedScene" uid="uid://j6ofb7hlsp6b" path="res://Scenes/Systems/dialogue_box.tscn" id="6_smyt0"]
 
 [sub_resource type="Gradient" id="Gradient_lccr5"]
@@ -15,9 +15,6 @@ gradient = SubResource("Gradient_lccr5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs0bk"]
 size = Vector2(243.598, 2.5641)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
-size = Vector2(133, 245)
 
 [sub_resource type="Theme" id="Theme_gtp7s"]
 
@@ -68,18 +65,7 @@ texture = SubResource("GradientTexture1D_73eeu")
 position = Vector2(19.3434, 0.814815)
 shape = SubResource("RectangleShape2D_hs0bk")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-270, 131)
-script = ExtResource("2_ubjex")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(-33.125, -100.825)
-scale = Vector2(1.02165, 1.02165)
-texture = ExtResource("2_it265")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-33.5, -101.5)
-shape = SubResource("RectangleShape2D_vdumk")
+[node name="Player" parent="." instance=ExtResource("5_h3877")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -126,3 +112,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 31
 text = "Wow! This is text you can see in the game! Wooooooooo
 "
+
+[node name="NpcTemplate" parent="." instance=ExtResource("6_3mucb")]
+position = Vector2(617, 84)

@@ -1,8 +1,9 @@
 extends Node2D
 #var InkPlayer = load("res://addons/inkgd/ink_player.gd")
 @onready var _ink_player = InkPlayer.new()
-@onready var dialogue_box = $DialogueBox
+#@onready var dialogue_box = $DialogueBox
 @onready var choice_btn = load("res://Scenes/Systems/choice_button.tscn")
+@onready var npc_template = $NpcTemplate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,7 @@ func _ready():
 func _story_loaded(successfully:bool):
 	if !successfully:
 		return
+	_observe_variables()
 	_continue_story()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,7 +32,7 @@ func _select_choice(selection:int):
 func _continue_story():
 	while _ink_player.can_continue:
 		var text = _ink_player.continue_story()
-		dialogue_box.add_text(text)
+		npc_template.dialogue_balloon.add_text(text)
 	if _ink_player.has_choices:
 		#dialogue_box.hide_textbox()
 		var choice_index = 0;
@@ -40,8 +42,14 @@ func _continue_story():
 			button.text = choice.text
 			button.pressed.connect(_select_choice.bind(choice_index))
 			choice_index += 1
-			dialogue_box.add_choice(button)
+			npc_template.dialogue_balloon.add_choice(button)
 			
 		#_select_choice(0)
 	else:
 		print("The End")
+
+func _observe_variables():
+	_ink_player.observe_variables(["test_int", "test_bool"], self, "_variable_changed")
+	
+func  _variable_changed(variable_name, new_value):
+	print("Variable ", variable_name, " changed to ", new_value)
