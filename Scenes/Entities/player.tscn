@@ -1,19 +1,58 @@
-[gd_scene load_steps=7 format=3 uid="uid://pgqoi5elfjig"]
+[gd_scene load_steps=14 format=3 uid="uid://pgqoi5elfjig"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="1_uxh7w"]
-[ext_resource type="Texture2D" uid="uid://b8mvkkf2swkkn" path="res://Sprites/Characters/Father/Untitled_Artwork-1.png" id="2_fi6en"]
+[ext_resource type="Texture2D" uid="uid://26opdtcanrt0" path="res://Sprites/Characters/old_man_walk_1.png" id="3_1tnla"]
 [ext_resource type="PackedScene" uid="uid://q531p4y0s8sh" path="res://Scenes/Systems/dialogue_balloon.tscn" id="3_jkqnx"]
+[ext_resource type="Texture2D" uid="uid://cn762qumjkjt1" path="res://Sprites/Characters/old_man_walk_2.png" id="4_qtsny"]
+[ext_resource type="Texture2D" uid="uid://c25cvuvh48wg3" path="res://Sprites/Characters/old_man_walk_3.png" id="5_dnok8"]
+[ext_resource type="Texture2D" uid="uid://htq11w6hit71" path="res://Sprites/Characters/old_man_walk_4.png" id="6_r1wcc"]
+[ext_resource type="Texture2D" uid="uid://dl76yk748tbhd" path="res://Sprites/Characters/old_man_walk_5.png" id="7_ktf8f"]
+[ext_resource type="Texture2D" uid="uid://dx42yte6lpw6x" path="res://Sprites/Characters/old_man_walk_6.png" id="8_xuht7"]
+[ext_resource type="Texture2D" uid="uid://cf1cblukxw785" path="res://Sprites/Characters/old_man_walk_7.png" id="9_8kfgl"]
+[ext_resource type="Texture2D" uid="uid://bjt7ifpkcxxjs" path="res://Sprites/Characters/old_man_walk_8.png" id="10_i824d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n5nmy"]
+load_path = "res://.godot/imported/Untitled_Artwork-1.png-e7cf1118781240b4361a485a0d23fc33.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
 size = Vector2(133, 245)
 
-[sub_resource type="Animation" id="Animation_jgy7l"]
-resource_name = "Idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewg24"]
-_data = {
-"Idle": SubResource("Animation_jgy7l")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbtce"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1tnla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qtsny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dnok8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r1wcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ktf8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xuht7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8kfgl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i824d")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-270, 131)
@@ -22,7 +61,7 @@ script = ExtResource("1_uxh7w")
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(-33.125, -100.825)
 scale = Vector2(-0.363183, 0.364999)
-texture = ExtResource("2_fi6en")
+texture = SubResource("CompressedTexture2D_n5nmy")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(-33.5, -101.5)
@@ -32,7 +71,8 @@ shape = SubResource("RectangleShape2D_vdumk")
 position = Vector2(-231, -403)
 scale = Vector2(0.651112, 0.651112)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ewg24")
-}
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-42, -99)
+scale = Vector2(0.371866, 0.370789)
+sprite_frames = SubResource("SpriteFrames_xbtce")
+animation = &"walk"
