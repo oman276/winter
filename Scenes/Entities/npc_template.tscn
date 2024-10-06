@@ -1,9 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://bluuiqjvnij0m"]
+[gd_scene load_steps=8 format=3 uid="uid://bluuiqjvnij0m"]
 
 [ext_resource type="Script" path="res://Scripts/npc_template.gd" id="1_67dak"]
-[ext_resource type="Texture2D" uid="uid://gpinuiausmi6" path="res://Sprites/temp NPC.png" id="1_ee4rk"]
 [ext_resource type="PackedScene" uid="uid://q531p4y0s8sh" path="res://Scenes/Systems/dialogue_balloon.tscn" id="2_3a36s"]
+[ext_resource type="Texture2D" uid="uid://8d2nx66283b8" path="res://Sprites/Characters/nurse_idle_1.png" id="3_xv1ce"]
 [ext_resource type="FontFile" uid="uid://bhk1o8rm4rhnv" path="res://Fonts/LibreBaskerville-Regular.ttf" id="4_up3c2"]
+[ext_resource type="Texture2D" uid="uid://b2kalbkmuynpk" path="res://Sprites/Characters/nurse_idle_2.png" id="4_vcrtp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uveko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xv1ce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vcrtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eeaeo"]
 size = Vector2(464, 468)
@@ -16,9 +31,12 @@ npcName = "test"
 [node name="DialogueBalloon" parent="." instance=ExtResource("2_3a36s")]
 position = Vector2(-277.941, -447.059)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.47386, 1.47386)
-texture = ExtResource("1_ee4rk")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11.7647, -7.35294)
+scale = Vector2(0.61172, 0.61172)
+sprite_frames = SubResource("SpriteFrames_uveko")
+frame = 1
+frame_progress = 0.90671
 
 [node name="Area2D" type="Area2D" parent="."]
 

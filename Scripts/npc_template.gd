@@ -2,12 +2,13 @@ extends Node2D
 @onready var area_2d = $Area2D
 @onready var dialogue_balloon = $DialogueBalloon
 @onready var interact_label = $InteractLabel
-
+@onready var animation_sprite = $AnimatedSprite2D
 @export var npcName : String
 @export var game_manager : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation_sprite.play("default")
 	interact_label.hide()
 	game_manager.state_changed.connect(dialogue_balloon.state_change)
 	game_manager.state_changed.connect(state_change)

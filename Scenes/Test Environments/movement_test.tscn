@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://drstwhhdab6p7"]
+[gd_scene load_steps=15 format=3 uid="uid://drstwhhdab6p7"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/ink_player.gd" id="1_6hqv4"]
 [ext_resource type="Texture2D" uid="uid://dhvj5gnpm4i8e" path="res://Sprites/temp background.png" id="1_42jhv"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="2_wknms"]
 [ext_resource type="PackedScene" uid="uid://pgqoi5elfjig" path="res://Scenes/Entities/player.tscn" id="5_h3877"]
 [ext_resource type="PackedScene" uid="uid://bluuiqjvnij0m" path="res://Scenes/Entities/npc_template.tscn" id="6_3mucb"]
-[ext_resource type="Texture2D" uid="uid://q5i3j7nfl3on" path="res://Sprites/Locations/dock.png" id="7_ux42d"]
+[ext_resource type="Texture2D" uid="uid://c5end3cochujh" path="res://Sprites/Locations/sky_sprite.png" id="6_aj8vq"]
+[ext_resource type="Texture2D" uid="uid://b1fyye5eg6sew" path="res://Sprites/Locations/background_hills_sprite.png" id="7_fucoj"]
+[ext_resource type="Texture2D" uid="uid://bmnad0f6cnra" path="res://Sprites/Locations/dock_sprite.png" id="7_yjd7q"]
 
 [sub_resource type="Gradient" id="Gradient_lccr5"]
 colors = PackedColorArray(0.560784, 0.592157, 0.662745, 0, 0.560784, 0.592157, 0.662745, 0)
@@ -14,7 +16,7 @@ colors = PackedColorArray(0.560784, 0.592157, 0.662745, 0, 0.560784, 0.592157, 0
 gradient = SubResource("Gradient_lccr5")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs0bk"]
-size = Vector2(243.598, 2.5641)
+size = Vector2(191.224, 2.5641)
 
 [sub_resource type="Theme" id="Theme_gtp7s"]
 
@@ -34,10 +36,11 @@ scale = Vector2(1.21411, 1.21411)
 texture = ExtResource("1_42jhv")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(-467, -225)
 zoom = Vector2(0.58, 0.58)
 limit_left = -2300
 limit_top = -1300
-limit_right = 3000
+limit_right = 2850
 limit_bottom = 200
 script = ExtResource("2_wknms")
 follow_offset = Vector2(0, -200)
@@ -51,7 +54,8 @@ texture = SubResource("GradientTexture1D_73eeu")
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground Temp"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Temp/StaticBody2D"]
-position = Vector2(19.3434, 0.814815)
+position = Vector2(-6.84364, 0.814815)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hs0bk")
 
 [node name="Ground Temp2" type="Sprite2D" parent="."]
@@ -75,7 +79,7 @@ texture = SubResource("GradientTexture1D_73eeu")
 [node name="StaticBody2D" type="StaticBody2D" parent="Ground Temp3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Temp3/StaticBody2D"]
-position = Vector2(19.3434, 0.814815)
+position = Vector2(-3.03731, 1.59625)
 shape = SubResource("RectangleShape2D_hs0bk")
 
 [node name="Player" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("5_h3877")]
@@ -129,13 +133,31 @@ theme_override_font_sizes/font_size = 31
 text = "Wow! This is text you can see in the game! Wooooooooo
 "
 
-[node name="TestNPC1" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("6_3mucb")]
+[node name="Nurse" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("6_3mucb")]
 position = Vector2(2101, -52)
-scale = Vector2(1.10226, 1.10226)
+scale = Vector2(1.3, 1.3)
 npcName = "DemoMedic"
 game_manager = NodePath("..")
 
-[node name="Dock" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(335, -538)
-texture = ExtResource("7_ux42d")
+[node name="DockSprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(252, -559)
+texture = ExtResource("7_yjd7q")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="SkySprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(221.5, 0)
+texture = ExtResource("6_aj8vq")
+offset = Vector2(0, 100)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="BackgroundHillsSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(729, -350)
+texture = ExtResource("7_fucoj")
+offset = Vector2(0, 400)

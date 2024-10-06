@@ -80,10 +80,10 @@ func enter_dialogue(branch:String):
 		return
 	match branch:
 		"Test":
-			dialogue_balloon = $TestNPC1.get_node("DialogueBalloon")
+			dialogue_balloon = $Nurse.get_node("DialogueBalloon")
 			_select_choice(0)
 		"DemoMedic":
-			dialogue_balloon = $TestNPC1.get_node("DialogueBalloon")
+			dialogue_balloon = $Nurse.get_node("DialogueBalloon")
 			_select_choice(1)
 		var other:
 			print("non-existent NPC access attempted: ", other)
