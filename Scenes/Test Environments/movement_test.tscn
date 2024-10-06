@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://drstwhhdab6p7"]
+[gd_scene load_steps=16 format=3 uid="uid://drstwhhdab6p7"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/ink_player.gd" id="1_6hqv4"]
 [ext_resource type="Texture2D" uid="uid://dhvj5gnpm4i8e" path="res://Sprites/temp background.png" id="1_42jhv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c5end3cochujh" path="res://Sprites/Locations/sky_sprite.png" id="6_aj8vq"]
 [ext_resource type="Texture2D" uid="uid://b1fyye5eg6sew" path="res://Sprites/Locations/background_hills_sprite.png" id="7_fucoj"]
 [ext_resource type="Texture2D" uid="uid://bmnad0f6cnra" path="res://Sprites/Locations/dock_sprite.png" id="7_yjd7q"]
+[ext_resource type="Texture2D" uid="uid://clfrewuivvv4m" path="res://Sprites/light.png" id="9_bgnx8"]
 
 [sub_resource type="Gradient" id="Gradient_lccr5"]
 colors = PackedColorArray(0.560784, 0.592157, 0.662745, 0, 0.560784, 0.592157, 0.662745, 0)
@@ -164,3 +165,28 @@ z_index = -2
 position = Vector2(729, -350)
 texture = ExtResource("7_fucoj")
 offset = Vector2(0, 400)
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Node2D"]
+position = Vector2(-2206, -726)
+scale = Vector2(0.362439, 0.362439)
+color = Color(1, 0.0627451, 0.105882, 1)
+energy = 2.24
+texture = ExtResource("9_bgnx8")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Node2D"]
+position = Vector2(2723, -251)
+scale = Vector2(0.286813, 0.286813)
+energy = 2.24
+texture = ExtResource("9_bgnx8")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Node2D"]
+z_index = -5
+position = Vector2(-224, -131)
+scale = Vector2(3.87809, 3.87809)
+color = Color(0.891966, 0.982185, 0.740127, 1)
+energy = 0.56
+texture = ExtResource("9_bgnx8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
