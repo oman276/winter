@@ -5,13 +5,15 @@ extends Node2D
 @onready var animation_sprite = $AnimatedSprite2D
 @export var npcName : String
 @export var game_manager : Node2D
-
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var interacted = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_sprite.play("default")
 	interact_label.hide()
 	game_manager.state_changed.connect(dialogue_balloon.state_change)
 	game_manager.state_changed.connect(state_change)
+	audio_stream_player_2d.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,7 +23,8 @@ func _on_area_2d_body_entered(body):
 	#print(body)
 	if(body.is_in_group("Player")):
 		body.current_interactable = npcName
-		interact_label.show()
+		if(!interacted):
+			interact_label.show()
 
 func _on_area_2d_body_exited(body):
 	if(body.is_in_group("Player")):
@@ -33,6 +36,7 @@ func state_change(exit_state:int, enter_state:int):
 	match exit_state:
 		0:
 			interact_label.hide()
+			interacted = true
 		1: 
 			pass
 		2: 
@@ -40,7 +44,8 @@ func state_change(exit_state:int, enter_state:int):
 			
 	match enter_state:
 		0:
-			interact_label.show()
+			if(!interacted):
+				interact_label.show()
 		1: 
 			pass
 		2: 
