@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bjt7ifpkcxxjs" path="res://Sprites/Characters/old_man_walk_8.png" id="10_i824d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n5nmy"]
+load_path = "res://.godot/imported/Untitled_Artwork-1.png-e7cf1118781240b4361a485a0d23fc33.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
 size = Vector2(133, 245)
@@ -58,6 +59,7 @@ position = Vector2(-270, 131)
 script = ExtResource("1_uxh7w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
+visible = false
 position = Vector2(-33.125, -100.825)
 scale = Vector2(-0.363183, 0.364999)
 texture = SubResource("CompressedTexture2D_n5nmy")

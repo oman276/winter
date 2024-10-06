@@ -55,7 +55,6 @@ texture = SubResource("GradientTexture1D_73eeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Temp/StaticBody2D"]
 position = Vector2(-6.84364, 0.814815)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hs0bk")
 
 [node name="Ground Temp2" type="Sprite2D" parent="."]
@@ -147,17 +146,21 @@ texture = ExtResource("7_yjd7q")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -2
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="SkySprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -2
 position = Vector2(221.5, 0)
 texture = ExtResource("6_aj8vq")
 offset = Vector2(0, 100)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = -2
 motion_scale = Vector2(0.4, 0.4)
 
 [node name="BackgroundHillsSprite" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+z_index = -2
 position = Vector2(729, -350)
 texture = ExtResource("7_fucoj")
 offset = Vector2(0, 400)
