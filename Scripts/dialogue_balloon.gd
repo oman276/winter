@@ -27,12 +27,14 @@ func add_text(next_text:String):
 		button.queue_free()
 	activeButtons.clear()
 	text.text = next_text
+	
 	show_balloon()
 	
 func show_balloon():
 	balloon.show()
 	
 func add_choice(btn_obj):
+	text.hide()
 	$Balloon/Choices.add_child(btn_obj)
 	activeButtons.insert(activeButtons.size(), btn_obj)
 	show_balloon()
@@ -51,6 +53,6 @@ func state_change(exit_state:int, enter_state:int):
 		0:
 			hide_balloon()
 		1: 
-			pass
+			text.show()
 		2: 
-			pass
+			text.hide()

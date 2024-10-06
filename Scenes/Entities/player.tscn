@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://pgqoi5elfjig"]
+[gd_scene load_steps=7 format=3 uid="uid://pgqoi5elfjig"]
 
 [ext_resource type="Script" path="res://Scenes/Test Environments/Player.gd" id="1_uxh7w"]
-[ext_resource type="Texture2D" uid="uid://dkpxqi50pkfey" path="res://Sprites/temp_father.png" id="2_md1ns"]
+[ext_resource type="Texture2D" uid="uid://b8mvkkf2swkkn" path="res://Sprites/Characters/Father/Untitled_Artwork-1.png" id="2_fi6en"]
 [ext_resource type="PackedScene" uid="uid://q531p4y0s8sh" path="res://Scenes/Systems/dialogue_balloon.tscn" id="3_jkqnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdumk"]
 size = Vector2(133, 245)
+
+[sub_resource type="Animation" id="Animation_jgy7l"]
+resource_name = "Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewg24"]
+_data = {
+"Idle": SubResource("Animation_jgy7l")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-270, 131)
@@ -13,8 +21,8 @@ script = ExtResource("1_uxh7w")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(-33.125, -100.825)
-scale = Vector2(1.02165, 1.02165)
-texture = ExtResource("2_md1ns")
+scale = Vector2(-0.363183, 0.364999)
+texture = ExtResource("2_fi6en")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(-33.5, -101.5)
@@ -23,3 +31,8 @@ shape = SubResource("RectangleShape2D_vdumk")
 [node name="DialogueBalloon" parent="." instance=ExtResource("3_jkqnx")]
 position = Vector2(-231, -403)
 scale = Vector2(0.651112, 0.651112)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ewg24")
+}

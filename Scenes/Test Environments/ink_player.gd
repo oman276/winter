@@ -54,7 +54,7 @@ func _continue_story():
 		var choice_index = 0;
 		for choice in _ink_player.current_choices:
 			var button = choice_btn.instantiate()
-			button.text = "> " + choice.text
+			button.text = "\"" + choice.text + "\""
 			button.pressed.connect(_select_choice.bind(choice_index))
 			choice_index += 1
 			if(player_balloon):

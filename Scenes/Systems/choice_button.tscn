@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbddfrmiqnjk1"]
+[gd_scene load_steps=4 format=3 uid="uid://dbddfrmiqnjk1"]
 
 [ext_resource type="FontFile" uid="uid://bhk1o8rm4rhnv" path="res://Fonts/LibreBaskerville-Regular.ttf" id="1_nonbm"]
+
+[sub_resource type="Theme" id="Theme_4bhll"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_706fx"]
+bg_color = Color(0.156863, 0.286275, 0.364706, 0.552941)
 
 [node name="ChoiceButton" type="Button"]
 anchors_preset = 15
@@ -10,11 +15,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(0.683077, 0.683077, 0.683077, 1)
+theme_override_colors/font_color = Color(0.870498, 0.906723, 0.923254, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.93408, 0.93408, 0.93408, 1)
+theme_override_colors/font_hover_color = Color(0.546913, 0.855008, 0.82564, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0.757103, 3.99485e-06, 0.464384, 0)
 theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
@@ -25,3 +30,15 @@ theme_override_font_sizes/font_size = 25
 text = "Choice"
 flat = true
 expand_icon = true
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_4bhll")
+theme_override_styles/panel = SubResource("StyleBoxFlat_706fx")

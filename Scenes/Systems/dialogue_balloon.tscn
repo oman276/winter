@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://q531p4y0s8sh"]
+[gd_scene load_steps=7 format=3 uid="uid://q531p4y0s8sh"]
 
 [ext_resource type="Script" path="res://Scripts/dialogue_balloon.gd" id="1_7fkho"]
 [ext_resource type="FontFile" uid="uid://bhk1o8rm4rhnv" path="res://Fonts/LibreBaskerville-Regular.ttf" id="2_h0mjt"]
@@ -9,6 +9,11 @@ colors = PackedColorArray(0, 0, 0, 0, 0.0823529, 0.0823529, 0.0823529, 0, 1, 1, 
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_odo3d"]
 gradient = SubResource("Gradient_53wta")
+
+[sub_resource type="Theme" id="Theme_atpx7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu8tq"]
+bg_color = Color(0.156863, 0.286275, 0.364706, 0.552941)
 
 [node name="DialogueBalloon" type="Node2D"]
 script = ExtResource("1_7fkho")
@@ -27,11 +32,17 @@ offset_bottom = 252.0
 texture = SubResource("GradientTexture1D_odo3d")
 
 [node name="Text" type="Label" parent="Balloon"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 600.0
-offset_bottom = 247.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -298.5
+offset_top = -138.0
+offset_right = 299.5
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_h0mjt")
@@ -42,8 +53,19 @@ weeeeeee"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-clip_text = true
 visible_characters_behavior = 1
+
+[node name="Panel" type="Panel" parent="Balloon/Text"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_atpx7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu8tq")
 
 [node name="Choices" type="VBoxContainer" parent="Balloon"]
 layout_mode = 0
