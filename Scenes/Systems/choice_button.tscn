@@ -8,6 +8,8 @@
 bg_color = Color(0.156863, 0.286275, 0.364706, 0.552941)
 
 [node name="ChoiceButton" type="Button"]
+z_index = 10
+z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,7 +34,8 @@ flat = true
 expand_icon = true
 
 [node name="Panel" type="Panel" parent="."]
-z_index = -1
+z_index = 1
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
