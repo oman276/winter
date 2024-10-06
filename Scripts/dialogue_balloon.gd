@@ -17,6 +17,8 @@ func _process(delta):
 
 func hide_balloon():
 	text.text = ""
+	for button in activeButtons:
+		button.queue_free()
 	activeButtons.clear()
 	balloon.hide()
 

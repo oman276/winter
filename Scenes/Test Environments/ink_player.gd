@@ -20,7 +20,7 @@ var player_balloon
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(_ink_player)
-	_ink_player.ink_file = load("res://Ink Scripts/test2.ink.json")
+	_ink_player.ink_file = load("res://Ink Scripts/demo_v1.json")
 	_ink_player.loads_in_background = true
 	#_ink_player.connect("loaded", self, "_story_loaded")
 	_ink_player.loaded.connect(_story_loaded)
@@ -38,12 +38,15 @@ func _process(delta):
 	pass
 
 func _select_choice(selection:int):
+	for c in _ink_player.current_choices:
+		print(c.text)
 	_ink_player.choose_choice_index(selection)
 	_continue_story()
 
 func _continue_story():
 	while _ink_player.can_continue:
 		var text = _ink_player.continue_story()
+		#print(text)
 		if(dialogue_balloon && text != ""):
 			dialogue_balloon.add_text(text)
 			dialogue_balloon.show()
@@ -51,14 +54,14 @@ func _continue_story():
 		var choice_index = 0;
 		for choice in _ink_player.current_choices:
 			var button = choice_btn.instantiate()
-			button.text = choice.text
+			button.text = "> " + choice.text
 			button.pressed.connect(_select_choice.bind(choice_index))
 			choice_index += 1
 			if(player_balloon):
 				player_balloon.add_choice(button)
 				player_balloon.show()
 	else:
-		print("The End")
+		print("No Further Actions")
 
 func _observe_variables():
 	_ink_player.observe_variables(["test_int", "test_bool", "state"], self, "_variable_changed")
@@ -79,6 +82,9 @@ func enter_dialogue(branch:String):
 		"Test":
 			dialogue_balloon = $TestNPC1.get_node("DialogueBalloon")
 			_select_choice(0)
+		"DemoMedic":
+			dialogue_balloon = $TestNPC1.get_node("DialogueBalloon")
+			_select_choice(1)
 		var other:
 			print("non-existent NPC access attempted: ", other)
 	if(!dialogue_balloon):

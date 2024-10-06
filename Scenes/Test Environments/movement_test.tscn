@@ -116,5 +116,5 @@ text = "Wow! This is text you can see in the game! Wooooooooo
 
 [node name="TestNPC1" parent="." node_paths=PackedStringArray("game_manager") instance=ExtResource("6_3mucb")]
 position = Vector2(617, 84)
-npcName = "Test"
+npcName = "DemoMedic"
 game_manager = NodePath("..")

@@ -1,8 +1,27 @@
-[gd_scene format=3 uid="uid://dbddfrmiqnjk1"]
+[gd_scene load_steps=2 format=3 uid="uid://dbddfrmiqnjk1"]
+
+[ext_resource type="FontFile" uid="uid://bhk1o8rm4rhnv" path="res://Fonts/LibreBaskerville-Regular.ttf" id="1_nonbm"]
 
 [node name="ChoiceButton" type="Button"]
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 36
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.683077, 0.683077, 0.683077, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.93408, 0.93408, 0.93408, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_fonts/font = ExtResource("1_nonbm")
+theme_override_font_sizes/font_size = 25
 text = "Choice"
+flat = true
 expand_icon = true
