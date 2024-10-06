@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const ACC = 30.0
 const FRICTION = 20.0
@@ -12,7 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var sprite = $Sprite2D
 @onready var player_collider = $PlayerCollider
 @onready var dialogue_balloon = $DialogueBalloon
-
+@onready var animation_sprite = $AnimatedSprite2D
 @export var game_manager : Node
 
 var current_interactable : String = "NONE"
@@ -29,8 +29,10 @@ func _physics_process(delta):
 	var direction = Input.get_axis("player_left", "player_right")
 	if direction && game_manager.currentState == ink_player.GameState.FREE:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACC)
-		sprite.flip_h = velocity.x < 0
+		animation_sprite.play("walk")
+		animation_sprite.flip_h = velocity.x > 0
 	else:
+		animation_sprite.stop()
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 	move_and_slide()
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8mvkkf2swkkn"
-path="res://.godot/imported/Untitled_Artwork-1.png-e7cf1118781240b4361a485a0d23fc33.ctex"
+uid="uid://htq11w6hit71"
+path="res://.godot/imported/old_man_walk_4.png-0bc6ea5d83724a67f427047106772917.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Father/Untitled_Artwork-1.png"
-dest_files=["res://.godot/imported/Untitled_Artwork-1.png-e7cf1118781240b4361a485a0d23fc33.ctex"]
+source_file="res://Sprites/Characters/old_man_walk_4.png"
+dest_files=["res://.godot/imported/old_man_walk_4.png-0bc6ea5d83724a67f427047106772917.ctex"]
 
 [params]
 
