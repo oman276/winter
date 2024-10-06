@@ -69,7 +69,7 @@ Barely. I could hear the shells, but I didn’t have to feel them.
 ==DEMO_MEDIC_14==
 ~state = 1
 Who’s living? I have a dozen girls in these tents who still don’t know if they’ll ever walk again. We’re back on our side of the world, but their war isn’t over.
-*[next]->DEMO_MEDIC_14
+*[next]->DEMO_MEDIC_15
 ==DEMO_MEDIC_15==
 ~state = 1
 My sisters-in-arms faced the machine guns and mortar shells. They ran into hell and kept the enemy barbarians from the gates of Rome. And they died. Every day, every hour, more dead and dying.
