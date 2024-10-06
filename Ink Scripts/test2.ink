@@ -24,7 +24,7 @@ I’m sorry, but you need to go. There’s still wounded in the lower docks.
 *[next]->DEMO_MEDIC_2 
 ==DEMO_MEDIC_2==
 ~state = 2
-*[Shouldnt you take them to a real hospital?]->DEMO_MEDIC_4
+*[Shouldn't you take them to a real hospital?]->DEMO_MEDIC_4
 *[Are you a nurse?]->DEMO_MEDIC_5
 ==DEMO_MEDIC_3==
 Test->DEMO_MEDIC_2
